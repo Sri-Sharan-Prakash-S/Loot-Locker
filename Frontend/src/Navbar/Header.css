@@ -1,0 +1,50 @@
+.btn{
+    background-color: rgb(234, 26, 151);
+    border-radius: 8px;
+}
+
+.navbar{
+    height: 100px;
+    background-color: rgb(0, 0, 0);
+}
+
+.tooltip{
+    background-color: rgb(234, 26, 151);
+}
+
+.bulge{
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.bulge:hover{
+    transform: scale(1.05);
+}
+
+.slick-slider button{
+    left: 1450px;
+}
+
+.slick-slider .slick-arrow .slick-prev{
+    right: 1000px;
+}
+
+.review{
+    position: absolute;
+    top: 80%;
+    left: 46%;
+    transform: translate(-50%,-50%);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    transition: opacity 0.5s ease-in;
+}
+
+.nav-item.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+.card{
+    background-color: orange;
+}

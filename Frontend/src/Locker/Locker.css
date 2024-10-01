@@ -1,0 +1,29 @@
+.outline{
+    border: none;
+    outline: none;
+}
+
+.description{
+    max-width: 740px;
+}
+
+.scale-75{
+    transform: scale(0.75);
+    border: 2px solid black;
+    max-width: 500px;
+}
+
+.sm100{
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(248, 25, 148, 1.6);
+}
+
+.border-black:active{
+    background-color: black;
+    color: white;
+}
+
+.subscribe{
+    background-color: rgb(234,26,151);
+    color: white;
+}

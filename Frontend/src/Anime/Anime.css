@@ -1,0 +1,17 @@
+.hover-shadow{
+    transition: box-shadow 0.3s ease;
+    border: 2px solid black;
+    max-width: 400px;
+}
+
+.hover-shadow:hover{
+    box-shadow: 0 4px 15px rgba(248, 25, 148, 1.6);
+}
+
+.tracking-tight{
+    letter-spacing: -0.05em;
+}
+
+.arrow{
+    width: 20px;
+}

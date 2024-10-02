@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import share from '../../../Frontend/src/assets/share.png'
+import whatsapp from '../../../Frontend/src/assets/whatsapp.png'
+import facebook from '../../../Frontend/src/assets/facebook.png'
 import { blog_data } from '../assets/gameassets';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import logo from '../../../Frontend/src/assets/gaming-pad.png'
 import './Page.css'
 
@@ -45,9 +48,15 @@ const Page = () => {
             <h3 className='fs-4 my-5 fw-bold'>Step 3: Self-Reflection and Goal Setting</h3>
             <p className='fs-5 my-3'>{data.description}</p>
             <h3 className='fs-4 my-5 fw-bold'>Conclusion</h3>
-
-
-
+            <p className='my-3'>{data.description}</p>
+            <div>
+                <p className='text-dark fw-bold my-5'>Share this article on social media</p>
+                <div className='d-flex'>
+                    <img className='mr-2' src={share} width={30} alt="" />
+                    <img className='mr-2' src={whatsapp} width={30} alt="" />
+                    <img src={facebook} width={30} alt="" />
+                </div>
+            </div>
         </div>
         </div>:<></>
   )

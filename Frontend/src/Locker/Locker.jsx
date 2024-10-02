@@ -1,8 +1,8 @@
 import React from 'react'
-import Anime from '../Anime/Anime'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Locker.css'
+import List from '../List/List';
 
 const Locker = () => {
   return (
@@ -15,7 +15,7 @@ const Locker = () => {
                 <button type='submit' className='border-black py-4 px-4 px-sm-8 subscribe'>Subscribe</button>
             </form>
         </div>
-        <Anime/>
+        <List/>
     </div>
   )
 }

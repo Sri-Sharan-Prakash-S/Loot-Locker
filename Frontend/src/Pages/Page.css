@@ -1,8 +1,31 @@
 .bg-gray{
-    background-color: black;
+    background-color: gray;
 }
 
 .start{
     background-color: rgb(234,26,151);
     border-radius: 8px;
+}
+
+.author{
+    border-radius: 50%;
+}
+
+.content{
+    margin-left: 520px;
+    margin-top: -40px;
+}
+
+.content-image{
+    border: 4px solid white;
+}
+
+.my-3{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.my-5{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

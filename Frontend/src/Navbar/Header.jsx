@@ -12,6 +12,7 @@ import war from '../../../Frontend/src/assets/warzone.jpg'
 import experts from '../../../Frontend/src/assets/experts.jpg'
 import anime from '../../../Frontend/src/assets/anime.jpg'
 import manga from '../../../Frontend/src/assets/manga.jpg'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const slides={
@@ -57,7 +58,6 @@ const Header = () => {
             <li className="nav-item dropdown">
               <a
                 className="nav-link fs-5 text-light"
-                href="#"
                 id="resourcesDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -66,9 +66,11 @@ const Header = () => {
                 Resources
               </a>
               <ul className="dropdown-menu bg-warning" aria-labelledby="resourcesDropdown">
-                <li><a className="dropdown-item text-dark" href="#resource1">Gaming Blog</a></li>
-                <li><a className="dropdown-item text-dark" href="#resource2">Anime Blog</a></li>
-                <li><a className="dropdown-item text-dark" href="#resource3">Latest News</a></li>
+                <Link to={''}>
+                <li><a className="dropdown-item text-dark" >Blog posts</a></li>
+                </Link>
+                <li><a className="dropdown-item text-dark" >Anime Blog</a></li>
+                <li><a className="dropdown-item text-dark" >Latest News</a></li>
               </ul>
             </li>
           </ul>

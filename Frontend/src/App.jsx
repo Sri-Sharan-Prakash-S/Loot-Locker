@@ -14,7 +14,7 @@ function App() {
     <div className='app'>
       <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/games' element={<Locker/>} />
+        <Route path='/News' element={<Locker/>} />
         <Route path='/Pages/:id' element={<Page/>}/>
       </Routes>
     </div>

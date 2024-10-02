@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import share from '../../../Frontend/src/assets/share.png'
 import whatsapp from '../../../Frontend/src/assets/whatsapp.png'
 import facebook from '../../../Frontend/src/assets/facebook.png'
@@ -29,7 +30,9 @@ const Page = () => {
   return (data?<div>
     <div className='bg-gray pt-2 pb-5'>
         <div className="bg-gray d-flex justify-content-between align-items-center pr-2 pl-2">
+            <Link to={'/'}>
             <img src={logo} width={40} className='w-20 w-sm-auto' alt="" />
+            </Link>
             <button className='d-flex align-items-center gap-2 start'>Get Started</button>
         </div>
         <div className="text-center">
@@ -48,11 +51,11 @@ const Page = () => {
             <p className='fs-5 my-3'>{data.description}</p>
             <h3 className='fs-4 my-5 fw-bold'>Step 3: Self-Reflection and Goal Setting</h3>
             <p className='fs-5 my-3'>{data.description}</p>
-            <h3 className='fs-4 my-5 fw-bold'>Conclusion</h3>
-            <p className='my-3'>{data.description}</p>
-            <div>
-                <p className='text-dark fw-bold my-5'>Share this article on social media</p>
-                <div className='d-flex'>
+            <h3 className='fs-4 mt-4 mb-4 fw-bold'>Conclusion</h3>
+            <p className='fs-5'>{data.description}</p>
+            <div className=''>
+                <p className='text-dark fw-bold mb-4'>Share this article on social media</p>
+                <div className='d-flex mb-5'>
                     <img className='mr-2' src={share} width={30} alt="" />
                     <img className='mr-2' src={whatsapp} width={30} alt="" />
                     <img src={facebook} width={30} alt="" />

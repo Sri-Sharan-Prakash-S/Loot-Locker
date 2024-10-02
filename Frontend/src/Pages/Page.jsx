@@ -6,6 +6,7 @@ import { blog_data } from '../assets/gameassets';
 import { useParams } from 'react-router-dom';
 import logo from '../../../Frontend/src/assets/gaming-pad.png'
 import './Page.css'
+import Footer from '../Footer/Footer';
 
 const Page = () => {
     const [data,setData]=useState(null);
@@ -58,6 +59,7 @@ const Page = () => {
                 </div>
             </div>
         </div>
+        <Footer/>
         </div>:<></>
   )
 }

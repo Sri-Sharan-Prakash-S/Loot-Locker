@@ -66,8 +66,8 @@ const Header = () => {
                 Resources
               </a>
               <ul className="dropdown-menu bg-warning" aria-labelledby="resourcesDropdown">
-                <Link to={'/News'}>
-                <li><a className="dropdown-item text-dark" >Blog posts</a></li>
+                <Link className='news' to={'/News'}>
+                <li className="dropdown-item text-dark" >Blog posts</li>
                 </Link>
                 <li><a className="dropdown-item text-dark" >Anime Blog</a></li>
                 <li><a className="dropdown-item text-dark" >Latest News</a></li>

@@ -95,7 +95,7 @@ const Header = ({setShowLogin}) => {
         :<div className='navbar-profile'>
           <img src={profile} width={40} alt="" />
           <ul className="nav-profile-dropdown">
-            <li><img width={20} height={20} src={add} alt="" /><p>Post</p></li>
+            <li><img width={20} height={20} src={add} alt="" /><p onClick={()=>navigate("/admin")}>Post</p></li>
             <hr />
             <li onClick={Logout}><img height={20} src={logout} width={20} alt="" /><p>Logout</p></li>
           </ul>

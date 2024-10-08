@@ -1,7 +1,6 @@
 import express from 'express'
 import cors from 'cors'
 import { connectDB } from './config/db.js'
-import lootRouter from './routes/lootRoute.js'
 import userRouter from './routes/userRoute.js'
 import 'dotenv/config'
 
@@ -14,7 +13,6 @@ app.use(cors())
 connectDB();
 
 app.use("/api/user",userRouter)
-app.use("/api/loot",lootRouter)
 
 
 app.get("/",(req,res)=>{

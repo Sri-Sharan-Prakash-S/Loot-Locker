@@ -1,0 +1,55 @@
+.admin-content{
+    display: flex;
+}
+
+.admin-side-content{
+    padding-left: 30px;
+}
+
+.add{
+    width: 70%;
+    margin-left: max(5vm,25px);
+    margin-top: 50px;
+    color: black;
+    font-size: 16px;
+}
+
+.add form{
+    gap: 10px;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-img-upload{
+    width: 120px;
+}
+
+.add-product-name, .add-product-description{
+}
+
+.add-product-name input,.add-product-description textarea{
+    padding: 10px;
+}
+
+.add-category{
+    display: flex;
+    gap: 10px;
+}
+
+.add-category select{
+    max-width: 120px;
+    padding: 10px;
+}
+
+.post-btn{
+    max-width: 120px;
+    border: none;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

@@ -8,6 +8,9 @@ import Locker from './Locker/Locker'
 import {Route,Routes} from 'react-router-dom';
 import Page from './Pages/Page'
 import LoginPopup from './LoginPopup/LoginPopup'
+import Admin from './Admin/Admin'
+import Add from './Add/Add'
+import Display from './Display/Display'
 
 function App() {
   const [showLogin,setShowLogin]=useState(false)
@@ -18,6 +21,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home setShowLogin={setShowLogin}/>} />
         <Route path='/News' element={<Locker/>} />
+        <Route path='/admin' element={<Admin/>}/>
         <Route path='/Pages/:id' element={<Page/>}/>
       </Routes>
     </div>

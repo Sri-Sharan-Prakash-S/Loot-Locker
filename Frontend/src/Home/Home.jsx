@@ -2,10 +2,10 @@ import React from 'react'
 import Header from '../Navbar/Header'
 import Footer from '../Footer/Footer'
 
-const Home = () => {
+const Home = ({setShowLogin}) => {
   return (
     <div>
-        <Header/>
+        <Header setShowLogin={setShowLogin}/>
         <Footer/>
     </div>
   )

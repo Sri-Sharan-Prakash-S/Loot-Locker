@@ -7,17 +7,21 @@ import Home from './Home/Home'
 import Locker from './Locker/Locker'
 import {Route,Routes} from 'react-router-dom';
 import Page from './Pages/Page'
+import LoginPopup from './LoginPopup/LoginPopup'
 
 function App() {
-
+  const [showLogin,setShowLogin]=useState(false)
   return (
+    <>
+    {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
     <div className='app'>
       <Routes>
-        <Route path='/' element={<Home/>} />
+        <Route path='/' element={<Home setShowLogin={setShowLogin}/>} />
         <Route path='/News' element={<Locker/>} />
         <Route path='/Pages/:id' element={<Page/>}/>
       </Routes>
     </div>
+    </>
   )
 }
 

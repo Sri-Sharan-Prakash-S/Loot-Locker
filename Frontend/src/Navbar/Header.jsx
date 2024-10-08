@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'slick-carousel/slick/slick.css';
 import Slider from 'react-slick';
+import { StoreContext } from '../context/StoreContext';
+import profile from '../../../Frontend/src/assets/profile.png'
+import add from '../../../Frontend/src/assets/more.png'
+import logout from '../../../Frontend/src/assets/logout.png'
 import 'slick-carousel/slick/slick-theme.css';
 import './Header.css'
 import loot from '../../../Frontend/src/assets/gaming-pad.png'
@@ -12,9 +16,9 @@ import war from '../../../Frontend/src/assets/warzone.jpg'
 import experts from '../../../Frontend/src/assets/experts.jpg'
 import anime from '../../../Frontend/src/assets/anime.jpg'
 import manga from '../../../Frontend/src/assets/manga.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({setShowLogin}) => {
   const slides={
     infinite:true,
     speed:500,
@@ -22,6 +26,17 @@ const Header = () => {
     slidesToShow:1,
     slidesToScroll:1,
   }
+
+  const {token,setToken}=useContext(StoreContext);
+
+  const navigate=useNavigate();
+
+  const Logout=()=>{
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/");
+  }
+
   return (
     <div style={{height:'1200px'}}>
         <nav className="navbar navbar-expand-lg custom-navbar">
@@ -75,10 +90,17 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <div className="start">
-        <a className="btn text-light" href="#get-started">Get Started</a>
+        {!token?
+        <button onClick={()=>setShowLogin(true)} className="btn text-light">Get Started</button>
+        :<div className='navbar-profile'>
+          <img src={profile} width={40} alt="" />
+          <ul className="nav-profile-dropdown">
+            <li><img width={20} height={20} src={add} alt="" /><p>Post</p></li>
+            <hr />
+            <li onClick={Logout}><img height={20} src={logout} width={20} alt="" /><p>Logout</p></li>
+          </ul>
+        </div>}
         </div>
-      </div>
     </nav>
     <div style={{width:'100%'}} className='m-auto'>
       <div className='mt-20'>

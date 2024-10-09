@@ -1,24 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import './Anime.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import {Link} from 'react-router-dom';
 import arrow from '../../../Frontend/src/assets/arrow-right.png'
-import axios from 'axios';
-import { StoreContext } from '../context/StoreContext';
 
 const Anime = ({description,title,category,image,id}) => {
-  const [lockList,setLockList]=useState({
-    name:"",
-    description:"",
-    category:""
-  });
-  const {url}=useContext(StoreContext);
-  const fetchFoodList=async()=>{
-    const response=await axios.get(url);
-    setLockList(response.data.data);
-  }
-
   return (
     <div>
     <div style={{backgroundColor:'white'}} className='hover-shadow ml-4 mb-4 mr-4'>

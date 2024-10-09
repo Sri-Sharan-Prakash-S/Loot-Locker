@@ -9,8 +9,6 @@ import {Route,Routes} from 'react-router-dom';
 import Page from './Pages/Page'
 import LoginPopup from './LoginPopup/LoginPopup'
 import Admin from './Admin/Admin'
-import Add from './Add/Add'
-import Display from './Display/Display'
 
 function App() {
   const [showLogin,setShowLogin]=useState(false)

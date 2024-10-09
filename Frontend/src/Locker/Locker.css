@@ -23,6 +23,10 @@
     color: white;
 }
 
+.cursor{
+    cursor: pointer;
+}
+
 .subscribe{
     background-color: rgb(234,26,151);
     color: white;

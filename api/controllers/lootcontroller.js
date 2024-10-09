@@ -2,16 +2,13 @@ import lootModel from "../models/lootModel.js"
 
 const addLoot= async(req,res)=>{
 
-    let image_filename=`${req.file.filename}`;
-
-    const looting=new lootModel({
+    const newlooting=new lootModel({
         name:req.body.name,
         description:req.body.description,
-        category:req.body.category,
-        image:image_filename
+        category:req.body.category
     })
     try{
-        await looting.save();
+        await newlooting.save();
         res.json({success:true,message:"Loot Added"})
     } catch(error){
         console.log(error)

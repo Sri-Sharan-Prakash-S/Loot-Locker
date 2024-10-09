@@ -42,7 +42,7 @@ const Header = ({setShowLogin}) => {
         <nav className="navbar navbar-expand-lg custom-navbar">
       <div className="container-fluid d-flex">
         <div>        
-        <a className="navbar-brand" href="#home">
+        <a className="navbar-brand cursor" onClick={()=>navigate("/")}>
         <img
             src={loot}
             alt="Logo"
@@ -51,7 +51,7 @@ const Header = ({setShowLogin}) => {
           />
           </a>
           </div>
-          <div className='fs-3 text-light'>
+          <div onClick={()=>navigate("/")} className='fs-3 text-light cursor'>
           Loot Locker
           </div>
         <button
@@ -68,7 +68,7 @@ const Header = ({setShowLogin}) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav d-flex gap-5 mx-auto">
             <li className="nav-item">
-              <a className="nav-link active text-light fs-5" aria-current="page" href="#home">Home</a>
+              <a className="nav-link active text-light fs-5 cursor" aria-current="page" onClick={()=>navigate("/")}>Home</a>
             </li>
             <li className="nav-item dropdown">
               <a
@@ -81,9 +81,7 @@ const Header = ({setShowLogin}) => {
                 Resources
               </a>
               <ul className="dropdown-menu bg-warning" aria-labelledby="resourcesDropdown">
-                <Link className='news' to={'/News'}>
-                <li className="dropdown-item text-dark" >Blog posts</li>
-                </Link>
+                <li onClick={()=>navigate("/news")} className="dropdown-item text-dark cursor" >Blog posts</li>
                 <li><a className="dropdown-item text-dark" >Anime Blog</a></li>
                 <li><a className="dropdown-item text-dark" >Latest News</a></li>
               </ul>

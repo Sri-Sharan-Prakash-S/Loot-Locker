@@ -22,7 +22,7 @@ const Adminbar = () => {
             </div>
             <div onClick={()=>navigate("/")} className="sidebar-option">
                 <img src={subscribers} alt="" />
-                <p>Subscribers</p>
+                <p>Home</p>
             </div>
         </div>
     </div>

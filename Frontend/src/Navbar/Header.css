@@ -55,6 +55,7 @@
 
 .navbar-profile{
     position: relative;
+    cursor: pointer;
 }
 
 .nav-profile-dropdown{
@@ -80,6 +81,14 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
+}
+
+.nav-profile-dropdown p{
+    margin-top: 14px;
+}
+
+.cursor{
     cursor: pointer;
 }
 

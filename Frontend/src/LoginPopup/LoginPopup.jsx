@@ -3,6 +3,8 @@ import axios from 'axios'
 import './LoginPopup.css'
 import close from '../../../Frontend/src/assets/close.png'
 import { StoreContext } from '../context/StoreContext'
+import { ToastContainer,toast } from 'react-toastify'
+import "react-toastify/ReactToastify.css"
 
 const LoginPopup = ({setShowLogin}) => {
     const {url,setToken}=useContext(StoreContext)
@@ -35,6 +37,7 @@ const LoginPopup = ({setShowLogin}) => {
             setToken(response.data.token);
             localStorage.setItem("token",response.data.token);
             setShowLogin(false)
+            toast("Welcome Back")
         }
         else{
             alert(response.data.message)

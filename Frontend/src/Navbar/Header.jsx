@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Carouselpage from '../Carousel/Carouselpage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'slick-carousel/slick/slick.css';
@@ -100,22 +101,7 @@ const Header = ({setShowLogin}) => {
         </div>}
         </div>
     </nav>
-    <div style={{width:'100%'}} className='m-auto'>
-      <div className='mt-20'>
-        <Slider {...slides}>
-          {dataslide.map((d)=>(
-            <div style={{height:'450px',position:'relative'}} className='text-dark rounded mb-4'>
-              <div className='rounded-top d-flex justify-content-center align-items-center'>
-                <img src={d.img} style={{height:'600px', width:'100%'}}/>
-                <div className='review'>
-                  <h2>{d.review}</h2>
-                </div>
-              </div>
-            </div>
-          ))}
-          </Slider>
-      </div>
-    </div>
+    <Carouselpage setShowLogin={setShowLogin}/>
     <div style={{width:'75%'}} className='m-auto'>
       <div className='gap-2 d-flex'>
           {data.map((d)=>(

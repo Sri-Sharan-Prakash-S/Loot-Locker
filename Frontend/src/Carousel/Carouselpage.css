@@ -1,0 +1,26 @@
+.carousel-indicators [data-bs-target] {
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+}
+
+.carousel-caption{
+    text-align: start;
+    margin-left: 650px;
+    margin-bottom: 30px;
+}
+
+.btn{
+    background-color: rgb(234, 26, 151);
+    border-radius: 8px;
+    color: white;
+}
+
+.carousel-item{
+    overflow: hidden;
+}
+
+.carousel-control-next, .carousel-control-prev{
+    height: 0;
+    margin-top: 300px;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import share from '../../../Frontend/src/assets/share.png'
 import whatsapp from '../../../Frontend/src/assets/whatsapp.png'
@@ -8,20 +8,21 @@ import { useParams } from 'react-router-dom';
 import logo from '../../../Frontend/src/assets/gaming-pad.png'
 import './Page.css'
 import Footer from '../Footer/Footer';
+import { StoreContext } from '../context/StoreContext'
 
 const Page = () => {
     const [data,setData]=useState(null);
+    const {list}=useContext(StoreContext);
     let {id}=useParams();
-
+    console.log(list)
     const fetchData=()=>{
-        for(let i=0;i<blog_data.length;i++){
-            if(parseInt(id)===blog_data[i].id){
-                setData(blog_data[i]);
+        for(let i=0;i<list.length;i++){
+            if(parseInt(id)-1===list.indexOf(list[i])){
+                setData(list[i]);
                 break;
             }
         }
     }
-    console.log(data);
 
     useEffect(()=>{
         fetchData();
@@ -38,21 +39,12 @@ const Page = () => {
         <div className="text-center">
             <h1 className='fs-2 fw-bold text-light'>{data.title}</h1>
             <img className='author' src={data.image} width={60} height={60} alt="" />
-            <p>{data.author}</p>
+            
         </div>
         </div>
         <div className='content'>
             <img className='content-image' src={data.image} width={500} height={400} alt="" />
-            <h1>Introduction:</h1>
-            <p className='fs-5 my-3'>{data.description}</p>
-            <h3 className='fs-4 my-5 fw-bold'>Step 1: Self-Reflection and Goal Setting</h3>
-            <p className='fs-5 my-3'>{data.description}</p>
-            <h3 className='fs-4 my-5 fw-bold'>Step 2: Self-Reflection and Goal Setting</h3>
-            <p className='fs-5 my-3'>{data.description}</p>
-            <h3 className='fs-4 my-5 fw-bold'>Step 3: Self-Reflection and Goal Setting</h3>
-            <p className='fs-5 my-3'>{data.description}</p>
-            <h3 className='fs-4 mt-4 mb-4 fw-bold'>Conclusion</h3>
-            <p className='fs-5'>{data.description}</p>
+            <div className="fs-5 my-3" dangerouslySetInnerHTML={{__html:data.description}}></div>
             <div className=''>
                 <p className='text-dark fw-bold mb-4'>Share this article on social media</p>
                 <div className='d-flex mb-5'>

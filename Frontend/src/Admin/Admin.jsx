@@ -8,10 +8,10 @@ import axios from 'axios'
 import { ToastContainer,toast } from 'react-toastify'
 import "react-toastify/ReactToastify.css"
 import close from "../../../Frontend/src/assets/close.png"
+import Compressor from 'compressorjs'
 
 const Admin = () => {
-    const {admin,url}=useContext(StoreContext);
-    const [image,setImage]=useState(false);
+    const {admin,url,list,setList}=useContext(StoreContext);
     const [data,setData]=useState({
         name:"",
         description:"",
@@ -24,25 +24,27 @@ const Admin = () => {
         setData(data=>({...data,[name]:value}))
     }
 
+    const handleImageChange=(event)=>{
+        const file=event.target.files[0];
+        if(file){
+            new Compressor(file,{
+                quality:0.6,
+                success(result){
+        var reader=new FileReader();
+        reader.readAsDataURL(result);
+        reader.onload=()=>{
+            setData(data=>({...data,image:reader.result}))
+            console.log(reader.result);
+        }
+        reader.onerror=error=>{
+            console.log("Error: ",error);
+        }}
+            });
+    }
+    }
     useEffect(()=>{
         fetchList();
     })
-
-    const onSubmitHandler=async(event)=>{
-        event.preventDefault();
-        const response=await axios.post("http://localhost:4000/api/lock/add",data);
-        if (response.data.success) {
-            setData({
-                name:"",
-                description:"",
-                category:"game"
-            })
-            setImage(false);
-            toast("Post Added")
-        }
-    }
-
-    const [list,setList]=useState([]);
 
     const fetchList=async()=>{
         const response=await axios.get("http://localhost:4000/api/lock/list");
@@ -52,6 +54,23 @@ const Admin = () => {
         else{
         }
     }
+
+    const onSubmitHandler=async(event)=>{
+        event.preventDefault();
+        const response=await axios.post("http://localhost:4000/api/lock/add",data);
+        if (response.data.success) {
+            setData({
+                name:"",
+                description:"",
+                category:"game",
+                image:null,
+                authorname:""
+            })
+            // setImage(false);
+            toast("Post Added")
+        }
+    }
+    
 
     const remove= async (postid)=>{
         const response=await axios.post("http://localhost:4000/api/lock/remove",{id:postid})
@@ -74,15 +93,15 @@ const Admin = () => {
             <div className='add'>
                 <form className='flex-col' onSubmit={onSubmitHandler}>
                     <div className='add-img-upload flex-col'>
-                        {/* <p>Upload Image</p>
-                        <label htmlFor='image'>
-                            <img src={image?URL.createObjectURL(image):upload} width={100} alt="" />
-                        </label> */}
-                        {/* <input onChange={(e)=>setImage(e.target.files[0])} type="file" id="image" hidden required/> */}
+                        <input accept='image/' type='file' onChange={handleImageChange} name='image' />
                     </div>
                     <div className="add-product-name flex-col">
                         <p>Title of the Post</p>
                         <input onChange={onChangeHandler} value={data.name} type="text" name='name' placeholder='Type here' />
+                    </div>
+                    <div className="add-product-name flex-col">
+                        <p>Title of the Post</p>
+                        <input onChange={onChangeHandler} value={data.authorname} type="text" name='authorname' placeholder='Type here' />
                     </div>
                     <div className="add-product-description flex-col">
                         <p>Description</p>

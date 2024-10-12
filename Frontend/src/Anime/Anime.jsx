@@ -15,7 +15,8 @@ const Anime = ({description,title,category,image,id}) => {
       <p className='ml-3 mt-3 px-1 d-inline-block bg-dark text-white'>{category}</p>
       <div>
         <h5 className='ml-3 mb-2 fs-4 traking-tight'>{title}</h5>
-        <p className='ml-3 mb-3 fs-6'>{description}</p>
+        <p className='ml-3 mb-1 fs-5'>Posted By</p>
+        <p className='ml-5 mb-1 fs-5 fw-bold'>{description}</p>
         <div className=' ml-3 mb-5 d-inline-flex align-items-center py-2 fw-bold'>
           <Link to={`/Pages/${id}`} state={{id}}>
           Read more

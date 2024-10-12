@@ -3,14 +3,15 @@ import fs from 'fs'
 
 const addlock=async(req,res)=>{
     
-    const {name,description,category}=req.body;
+    const {image,name,description,category,authorname}=req.body;
     //const {filename}=req.file;
     //let image_file=`${filename}`;
     const lock=new lockModel({
         name:name,
         description:description,
         category:category,
-        //image:image_file
+        image:image,
+        authorname:authorname
     })
     try{
         await lock.save();

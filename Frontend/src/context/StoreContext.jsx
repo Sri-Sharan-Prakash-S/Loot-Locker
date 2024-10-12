@@ -13,16 +13,21 @@ const StoreContextProvider=(props)=>{
         password:""
     })
     const [loginval,setLoginval]=useState("");
+    const [list,setList]=useState([]);
 
-
-
-    const fetchFoodList = async() => {
-        const response = await axios.get(url+"/api/lock/list")
+    const fetchList=async()=>{
+        const response=await axios.get("http://localhost:4000/api/lock/list");
+        if (response.data.success) {
+            setList(response.data.data);
+        }
+        else{
+        }
     }
 
+    
     useEffect(()=>{
         async function loadData() {
-            await fetchFoodList();
+            await fetchList();
             if (localStorage.getItem("token")) {
                 setToken(localStorage.getItem("token"));   
             }
@@ -39,7 +44,9 @@ const StoreContextProvider=(props)=>{
         data,
         setData,
         loginval,
-        setLoginval
+        setLoginval,
+        list,
+        setList
     }
     return(
         <StoreContext.Provider value={contextValue}>

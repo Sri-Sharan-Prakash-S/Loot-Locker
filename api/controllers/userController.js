@@ -2,7 +2,6 @@ import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import validator from "validator"
-import res from "express/lib/response.js";
 
 const loginUser=async(req,res)=>{
     const {email,password}=req.body;
@@ -62,15 +61,6 @@ const registerUser=async(req,res)=>{
         console.log(error);
         res.json({success:false,message:"Error"})
 }
-}
-
-const listName = async()=>{
-    try{
-        const name=await userModel.find({});
-    }catch(error){
-        console.log(error);
-        res.json({success:false,message:"Error"});
-    }
 }
 
 export {loginUser,registerUser}

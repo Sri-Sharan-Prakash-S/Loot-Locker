@@ -7,20 +7,19 @@ import { ToastContainer,toast } from 'react-toastify'
 import "react-toastify/ReactToastify.css"
 
 const LoginPopup = ({setShowLogin}) => {
-    const {url,setToken}=useContext(StoreContext)
+    const {url,setToken,data,setData,loginval,setLoginval}=useContext(StoreContext)
     const [currState,setCurrState]=useState("Login")
-    const [data,setData]=useState({
-        name:"",
-        email:"",
-        password:""
-    })
+    
 
 
     const onChangeHandler=(event)=>{
         const name=event.target.name;
         const value=event.target.value;
         setData(data=>({...data,[name]:value}))
+        setLoginval(loginval=>({...loginval,value}))
     }
+
+    console.log(data);
 
     const onLogin=async(event)=>{
         event.preventDefault()
@@ -37,7 +36,7 @@ const LoginPopup = ({setShowLogin}) => {
             setToken(response.data.token);
             localStorage.setItem("token",response.data.token);
             setShowLogin(false)
-            toast("Welcome Back")
+            toast("Welcome to Loot Locker")
         }
         else{
             alert(response.data.message)

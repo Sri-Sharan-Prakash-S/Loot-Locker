@@ -20,15 +20,8 @@ import manga from '../../../Frontend/src/assets/manga.jpg'
 import { Link, useNavigate } from 'react-router-dom';
 
 const Header = ({setShowLogin}) => {
-  const slides={
-    infinite:true,
-    speed:500,
-    dots:true,
-    slidesToShow:1,
-    slidesToScroll:1,
-  }
 
-  const {token,setToken}=useContext(StoreContext);
+  const {token,setToken,data,setData}=useContext(StoreContext);
 
   const navigate=useNavigate();
 
@@ -98,13 +91,14 @@ const Header = ({setShowLogin}) => {
             <hr />
             <li onClick={Logout}><img height={20} src={logout} width={20} alt="" /><p>Logout</p></li>
           </ul>
-        </div>}
+        </div>
+        }
         </div>
     </nav>
     <Carouselpage setShowLogin={setShowLogin}/>
     <div style={{width:'75%'}} className='m-auto'>
       <div className='gap-2 d-flex'>
-          {data.map((d)=>(
+          {headerdata.map((d)=>(
             <div style={{height:'230px',paddingTop:'30px',marginTop:'30px',cursor:'pointer'}} className='card text-dark bulge rounded'>
               <div className='rounded-top d-flex justify-content-center align-items-center'>
                 <img src={d.img} style={{height:'100px', width:'150px',borderRadius:'8px'}} className=''/>
@@ -120,7 +114,7 @@ const Header = ({setShowLogin}) => {
   )
 }
 
-const data=[
+const headerdata=[
   {
     img:war,
     review:'Gaming Related post'
@@ -140,16 +134,6 @@ const data=[
   {
     img:war,
     review:'Top Gamers Connection'
-  }
-]
-
-const dataslide=[
-  {
-    img:slide1,
-    review:'Build Your Own gaming or anime post'
-  },
-  {
-    img:slide2,
   }
 ]
 
